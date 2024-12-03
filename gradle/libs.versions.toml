@@ -41,11 +41,11 @@ playServicesMaps = "19.0.0"
 annotation = "1.9.1"
 
 # Project versions
-projectApplicationId = "com.plcoding.runique"
+projectApplicationId = "com.raulastete.runique"
 projectVersionName = "1.0"
 projectMinSdkVersion = "25"
-projectTargetSdkVersion = "34"
-projectCompileSdkVersion = "34"
+projectTargetSdkVersion = "35"
+projectCompileSdkVersion = "35"
 projectVersionCode = "1"
 
 [libraries]
@@ -129,3 +129,5 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 room = { id = "androidx.room", version.ref = "room" }
 androidDynamicFeature = { id = "com.android.dynamic-feature", version.ref = "agp" }
 mapsplatform-secrets-plugin = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secretsPlugin"}
+
+runique-android-application = { id = "runique.android.application", version = "unspecified" }
