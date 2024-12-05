@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.ui.Modifier
+import com.raulastete.auth.presentation.intro.IntroScreen
 import com.raulastete.core.presentation.designsystem.RuniqueTheme
 
 class MainActivity : ComponentActivity() {
@@ -16,9 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             RuniqueTheme {
-                Surface(Modifier.fillMaxSize()) {
-                    Text("Hola Mundo!")
-                }
+                IntroScreen()
             }
         }
     }
