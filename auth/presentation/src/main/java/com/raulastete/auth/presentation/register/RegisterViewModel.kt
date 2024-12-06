@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 class RegisterViewModel(
-    private val userDataValidator: UserDataValidator //TODO: Use Hilt or Koin to pass parameters into ViewModel
+    private val userDataValidator: UserDataValidator
 ) : ViewModel() {
     var state by mutableStateOf(RegisterState())
         private set

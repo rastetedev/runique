@@ -24,7 +24,6 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.withLink
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.raulastete.auth.domain.UserDataValidator
 import com.raulastete.auth.presentation.R
 import com.raulastete.auth.presentation.register.components.PasswordRequirement
@@ -36,10 +35,11 @@ import com.raulastete.core.presentation.designsystem.components.GradientBackgrou
 import com.raulastete.core.presentation.designsystem.components.RuniqueActionButton
 import com.raulastete.core.presentation.designsystem.components.textfields.RuniquePasswordTextField
 import com.raulastete.core.presentation.designsystem.components.textfields.RuniqueTextField
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun RegisterScreen(
-    viewModel: RegisterViewModel = viewModel(),
+    viewModel: RegisterViewModel = koinViewModel(),
     onSignInClick: () -> Unit,
     onSuccessfulRegistration: () -> Unit,
 ) {
