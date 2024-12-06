@@ -24,14 +24,14 @@ import com.raulastete.core.presentation.designsystem.components.RuniqueOutlinedA
 
 @Composable
 fun IntroScreen(
-
+    onNavigateToSignIn: () -> Unit,
+    onNavigateToSignUp: () -> Unit
 ) {
-
     IntroContent(
         onAction = {
             when (it) {
-                IntroAction.OnSignInClick -> TODO()
-                IntroAction.OnSignUpClick -> TODO()
+                IntroAction.OnSignInClick -> { onNavigateToSignIn() }
+                IntroAction.OnSignUpClick -> { onNavigateToSignUp() }
             }
         }
     )

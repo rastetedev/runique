@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.raulastete.auth.presentation.register.RegisterScreen
+import androidx.navigation.compose.rememberNavController
 import com.raulastete.core.presentation.designsystem.RuniqueTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,10 +13,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             RuniqueTheme {
-                RegisterScreen(
-                    onSignInClick = {},
-                    onSuccessfulRegistration = {}
-                )
+                val navController = rememberNavController()
+                NavigationRoot(navController)
             }
         }
     }
