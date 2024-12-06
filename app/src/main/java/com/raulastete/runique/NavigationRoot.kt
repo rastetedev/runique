@@ -39,7 +39,7 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
 
         composable<Destination.Register> {
             RegisterScreen(
-                onSignInClick = {
+                onNavigateToSignIn = {
                     navController.navigate("") {
                         popUpTo(Destination.Register) {
                             inclusive = true
