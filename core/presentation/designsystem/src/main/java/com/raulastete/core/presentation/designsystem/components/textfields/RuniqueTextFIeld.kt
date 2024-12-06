@@ -117,7 +117,7 @@ fun RuniqueTextField(
                     },
                     shape = RoundedCornerShape(16.dp)
                 )
-                .padding(horizontal = 12.dp)
+                .padding(horizontal = 12.dp, vertical = 12.dp)
                 .onFocusChanged {
                     isFocused = it.isFocused
                 },
@@ -151,17 +151,14 @@ fun RuniqueTextField(
                         innerBox()
                     }
                     if (endIcon != null) {
-                        //Wrapped in IconButton to get same padding in both : email and password
-                        // text fields
-                        IconButton(onClick = {}) {
-                            Icon(
-                                imageVector = endIcon,
-                                contentDescription = null,
-                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                                modifier = Modifier
-                                    .padding(end = 8.dp)
-                            )
-                        }
+                        Spacer(modifier = Modifier.width(16.dp))
+                        Icon(
+                            imageVector = endIcon,
+                            contentDescription = null,
+                            tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier
+                                .padding(end = 8.dp)
+                        )
                     }
                 }
             }
