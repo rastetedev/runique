@@ -33,7 +33,6 @@ import com.raulastete.auth.presentation.register.components.PasswordRequirement
 import com.raulastete.core.presentation.designsystem.CheckIcon
 import com.raulastete.core.presentation.designsystem.EmailIcon
 import com.raulastete.core.presentation.designsystem.Poppins
-import com.raulastete.core.presentation.designsystem.RuniqueGray
 import com.raulastete.core.presentation.designsystem.components.GradientBackground
 import com.raulastete.core.presentation.designsystem.components.RuniqueActionButton
 import com.raulastete.core.presentation.designsystem.components.textfields.RuniquePasswordTextField
@@ -71,9 +70,12 @@ fun RegisterScreen(
     RegisterContent(
         state = viewModel.state,
         onAction = {
-            when(it){
-                RegisterAction.OnLoginClick -> { onNavigateToSignIn() }
-                else -> viewModel::onAction
+            when (it) {
+                RegisterAction.OnLoginClick -> {
+                    onNavigateToSignIn()
+                }
+
+                else -> viewModel.onAction(it)
             }
         }
     )
@@ -101,7 +103,7 @@ private fun RegisterContent(
                 withStyle(
                     style = SpanStyle(
                         fontFamily = Poppins,
-                        color = RuniqueGray
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 ) {
                     append(stringResource(id = R.string.already_have_an_account) + " ")
@@ -115,11 +117,7 @@ private fun RegisterContent(
                                     fontFamily = Poppins
                                 )
                             ),
-                            linkInteractionListener = object : LinkInteractionListener {
-                                override fun onClick(link: LinkAnnotation) {
-                                    onAction(RegisterAction.OnLoginClick)
-                                }
-                            }
+                            linkInteractionListener = { onAction(RegisterAction.OnLoginClick) }
                         )
                     ) {
                         append(stringResource(id = R.string.login))

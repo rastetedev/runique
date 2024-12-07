@@ -8,6 +8,9 @@ sealed interface Destination {
 
     @Serializable
     data object Register : Destination
+
+    @Serializable
+    data object Login : Destination
 }
 
 sealed interface Graph {
