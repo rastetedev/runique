@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import com.raulastete.auth.presentation.intro.IntroScreen
+import com.raulastete.auth.presentation.login.LoginScreen
 import com.raulastete.auth.presentation.register.RegisterScreen
 
 @Composable
@@ -29,7 +30,7 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
         composable<Destination.Intro> {
             IntroScreen(
                 onNavigateToSignIn = {
-
+                    navController.navigate(Destination.Login)
                 },
                 onNavigateToSignUp = {
                     navController.navigate(Destination.Register)
@@ -40,7 +41,7 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
         composable<Destination.Register> {
             RegisterScreen(
                 onNavigateToSignIn = {
-                    navController.navigate("") {
+                    navController.navigate(Destination.Login) {
                         popUpTo(Destination.Register) {
                             inclusive = true
                             saveState = true
@@ -49,7 +50,28 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
                     }
                 },
                 onSuccessfulRegistration = {
+                    navController.navigate(Destination.Login)
+                }
+            )
+        }
 
+        composable<Destination.Login> {
+            LoginScreen(
+                onLoginSuccess = {
+                    navController.navigate("") {
+                        popUpTo(Graph.Auth) {
+                            inclusive = true
+                        }
+                    }
+                },
+                onSignUpClick = {
+                    navController.navigate(Destination.Register) {
+                        popUpTo(Destination.Login) {
+                            inclusive = true
+                            saveState = true
+                        }
+                        restoreState = true
+                    }
                 }
             )
         }
