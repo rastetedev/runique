@@ -6,6 +6,7 @@ import com.raulastete.core.domain.util.DataError
 import com.raulastete.core.domain.util.EmptyDataResult
 import com.raulastete.core.domain.util.Result
 import io.ktor.client.HttpClient
+import kotlinx.coroutines.delay
 
 class FakeAuthRepository(
     private val httpClient: HttpClient
@@ -23,6 +24,7 @@ class FakeAuthRepository(
                 password = password
             )
         )*/
+        delay(5000)
         return Result.Success(Unit)
     }
 

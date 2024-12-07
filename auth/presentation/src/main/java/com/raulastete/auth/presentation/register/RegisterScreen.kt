@@ -73,7 +73,7 @@ fun RegisterScreen(
         onAction = {
             when(it){
                 RegisterAction.OnLoginClick -> { onNavigateToSignIn() }
-                else -> viewModel::onAction
+                else -> viewModel.onAction(it)
             }
         }
     )
