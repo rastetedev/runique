@@ -1,6 +1,5 @@
 package com.raulastete.runique
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -10,6 +9,7 @@ import androidx.navigation.compose.navigation
 import com.raulastete.auth.presentation.intro.IntroScreen
 import com.raulastete.auth.presentation.login.LoginScreen
 import com.raulastete.auth.presentation.register.RegisterScreen
+import com.raulastete.run.presentation.run_overview.RunOverviewScreen
 
 @Composable
 fun NavigationRoot(
@@ -86,7 +86,7 @@ private fun NavGraphBuilder.runGraph(navController: NavHostController) {
         startDestination = Destination.RunOverview,
     ) {
         composable<Destination.RunOverview> {
-            Text(text = "Run overview!")
+           RunOverviewScreen()
         }
     }
 }
