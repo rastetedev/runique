@@ -13,11 +13,12 @@ import com.raulastete.auth.presentation.register.RegisterScreen
 
 @Composable
 fun NavigationRoot(
-    navHostController: NavHostController
+    navHostController: NavHostController,
+    isLoggedIn: Boolean
 ) {
     NavHost(
         navController = navHostController,
-        startDestination = Graph.Auth
+        startDestination = if(isLoggedIn) Graph.Run else Graph.Auth
     ) {
         authGraph(navController = navHostController)
         runGraph(navController = navHostController)
