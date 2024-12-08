@@ -1,5 +1,6 @@
 package com.raulastete.runique
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -19,7 +20,7 @@ fun NavigationRoot(
         startDestination = Graph.Auth
     ) {
         authGraph(navController = navHostController)
-
+        runGraph(navController = navHostController)
     }
 }
 
@@ -58,7 +59,7 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
         composable<Destination.Login> {
             LoginScreen(
                 onLoginSuccess = {
-                    navController.navigate("") {
+                    navController.navigate(Graph.Run) {
                         popUpTo(Graph.Auth) {
                             inclusive = true
                         }
@@ -77,4 +78,14 @@ private fun NavGraphBuilder.authGraph(navController: NavHostController) {
         }
     }
 
+}
+
+private fun NavGraphBuilder.runGraph(navController: NavHostController) {
+    navigation<Graph.Run>(
+        startDestination = Destination.RunOverview,
+    ) {
+        composable<Destination.RunOverview> {
+            Text(text = "Run overview!")
+        }
+    }
 }

@@ -11,10 +11,15 @@ sealed interface Destination {
 
     @Serializable
     data object Login : Destination
+
+    @Serializable
+    data object RunOverview : Destination
 }
 
 sealed interface Graph {
     @Serializable
     data object Auth : Graph
-}
 
+    @Serializable
+    data object Run : Graph
+}

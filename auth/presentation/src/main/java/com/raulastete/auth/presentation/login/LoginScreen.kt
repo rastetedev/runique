@@ -125,7 +125,7 @@ private fun LoginContent(
             RuniqueActionButton(
                 text = stringResource(id = R.string.login),
                 isLoading = state.isLoggingIn,
-                enabled = state.canLogin,
+                enabled = state.canLogin && !state.isLoggingIn,
                 onClick = {
                     onAction(LoginAction.OnLoginClick)
                 },
@@ -155,11 +155,12 @@ private fun LoginContent(
                     }
                 }
             }
+            Spacer(modifier = Modifier.height(32.dp))
             Box(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .weight(1f),
-                contentAlignment = Alignment.BottomCenter
+                contentAlignment = Alignment.TopCenter
             ) {
                 BasicText(
                     text = annotatedString,
