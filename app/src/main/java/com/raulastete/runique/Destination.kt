@@ -14,6 +14,9 @@ sealed interface Destination {
 
     @Serializable
     data object RunOverview : Destination
+
+    @Serializable
+    data object ActiveRun : Destination
 }
 
 sealed interface Graph {

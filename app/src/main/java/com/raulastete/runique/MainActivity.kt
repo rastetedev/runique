@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.material3.Surface
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import com.raulastete.core.presentation.designsystem.RuniqueTheme
@@ -23,12 +24,14 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             RuniqueTheme {
-                if(!viewModel.state.isCheckingAuth) {
+                if (!viewModel.state.isCheckingAuth) {
                     val navController = rememberNavController()
-                    NavigationRoot(
-                        navHostController = navController,
-                        isLoggedIn = viewModel.state.isLoggedIn
-                    )
+                    Surface {
+                        NavigationRoot(
+                            navHostController = navController,
+                            isLoggedIn = viewModel.state.isLoggedIn
+                        )
+                    }
                 }
             }
         }
