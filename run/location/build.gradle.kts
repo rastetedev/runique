@@ -14,4 +14,6 @@ dependencies {
 
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.google.android.gms.play.services.location)
+
+    implementation(libs.bundles.koin)
 }

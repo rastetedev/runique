@@ -7,6 +7,8 @@ import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.dsl.module
 import com.raulastete.runique.MainViewModel
+import com.raulastete.runique.RuniqueApp
+import kotlinx.coroutines.CoroutineScope
 
 val appModule = module {
     single<SharedPreferences> {
@@ -20,4 +22,8 @@ val appModule = module {
     }
 
     viewModelOf(::MainViewModel)
+
+    single<CoroutineScope> {
+        (androidApplication() as RuniqueApp).applicationScope
+    }
 }
